@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+// import logo from "./logo.svg";
+// import "./App.css";
+import { useState, useEffect } from "react";
+
+console.log(process.env.REACT_APP_WEATHERAPI_KEY);
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [count, setCount] = useState(0);
+
+	useEffect(() => {
+		console.log(`Button has been incremented ${count} times`);
+	});
+
+	return (
+		<div className="App">
+			<p>Test React Hooks</p>
+			<button onClick={() => setCount(count + 1)}>Increment</button>
+			<p>{count}</p>
+		</div>
+	);
 }
 
 export default App;
