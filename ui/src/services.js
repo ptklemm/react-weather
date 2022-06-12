@@ -26,11 +26,11 @@ export async function getForecastWeather(latitude, longitude) {
 	return await getWeather("forecast", latitude, longitude);
 }
 
-export async function getBackgroundImage(query) {
+export async function getBackgroundImage(condition, isDay) {
 	try {
 		const response = await api.get("background", {
 			params: {
-				query
+				query: `${condition}+${isDay ? "day" : "night"}`
 			}
 		});
 		return response.data;
