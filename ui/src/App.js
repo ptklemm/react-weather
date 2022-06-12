@@ -10,7 +10,7 @@ const WEATHERAPI_URL_CURRENT = WEATHERAPI_URL_BASE + "/current.json";
 
 function App() {
 	const [geolocation, setGeolocation] = useState(null);
-	const [currentWeather, setCurrentWeather] = useState(0);
+	const [currentWeather, setCurrentWeather] = useState(null);
 
 	useEffect(() => {
 		if (navigator.geolocation) {
@@ -45,7 +45,11 @@ function App() {
 		<div className="vertical-centered-container">
 			<Card>
 				<Card.Body>
-					{currentWeather.location.name} {currentWeather.current.temp_f}
+					{currentWeather && (
+						<span>
+							{currentWeather.location.name} {currentWeather.current.temp_f}
+						</span>
+					)}
 				</Card.Body>
 			</Card>
 		</div>
