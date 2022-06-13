@@ -1,4 +1,4 @@
-require("dotenv").config();
+// require("dotenv").config();
 const express = require("express");
 const helmet = require("helmet");
 const cors = require("cors");
@@ -28,7 +28,7 @@ const app = express();
 
 app.use(helmet());
 app.use(cors());
-app.use(morgan(NODE_ENV === "development" ? "dev" : "tiny"));
+app.use(morgan(NODE_ENV === "development" ? "dev" : "combined"));
 
 app.use("/api", handleError);
 
