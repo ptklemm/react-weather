@@ -1,0 +1,21 @@
+version: "3.7"
+
+services:
+    api:
+        image: pklemm/react-weather-api
+        build:
+            context: api
+            dockerfile: ./Dockerfile
+        environment:
+            NODE_ENV: production
+            WEATHER_API_KEY: ${WEATHER_API_KEY}
+            PEXELS_API_KEY: ${PEXELS_API_KEY}
+        ports:
+            - 3001:3001
+    ui:
+        image: pklemm/react-weather-ui
+        build:
+            context: ui
+            dockerfile: ./Dockerfile
+        ports:
+            - 80:80

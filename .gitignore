@@ -3,7 +3,7 @@
 images
 
 # dependencies
-node_modules/
+node_modules
 /.pnp
 .pnp.js
 
@@ -11,7 +11,7 @@ node_modules/
 /coverage
 
 # production
-/build
+/ui/build
 
 # misc
 .DS_Store
